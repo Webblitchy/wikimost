@@ -131,7 +131,7 @@ export default function ShareShell({
               size="lg"
               fw={600}
             >
-              {import.meta.env.VITE_APP_NAME || "Forkmost"}
+              {import.meta.env.VITE_APP_NAME || "Wikimost"}
             </Text>
           </Group>
 

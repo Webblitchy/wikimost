@@ -10,7 +10,7 @@ declare global {
 }
 
 export function getAppName(): string {
-  return "Forkmost";
+  return "Wikimost";
 }
 
 export function getAppUrl(): string {
