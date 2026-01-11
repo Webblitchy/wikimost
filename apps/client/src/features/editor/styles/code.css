@@ -8,7 +8,7 @@
   pre {
     padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
     margin: 4px;
-    font-family: "JetBrainsMono", var(--mantine-font-family-monospace);
+    font-family: "JetBrains Mono", var(--mantine-font-family-monospace);
     border-radius: var(--mantine-radius-default);
     tab-size: 4;
 
@@ -27,6 +27,7 @@
       padding: 0;
       background: none;
       font-size: var(--mantine-font-size-sm);
+      font-family: "JetBrains Mono", var(--mantine-font-family-monospace);
     }
 
     /* Code styling */
@@ -96,7 +97,7 @@
   }
 
   :not(pre) > code {
-    font-family: "JetBrainsMono", var(--mantine-font-family-monospace);
+    font-family: "JetBrains Mono", var(--mantine-font-family-monospace);
     line-height: var(--mantine-line-height);
     padding: 2px calc(var(--mantine-spacing-xs) / 2);
     border-radius: var(--mantine-radius-sm);
