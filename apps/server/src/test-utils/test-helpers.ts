@@ -1,5 +1,5 @@
 /**
- * Shared test helpers for Forkmost controller unit tests.
+ * Shared test helpers for Wikimost controller unit tests.
  * Provides mock factories for common entities, services, and utilities.
  */
 

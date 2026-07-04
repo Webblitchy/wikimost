@@ -34,7 +34,7 @@ export class McpServerFactory {
 
   createServer(user: any, workspace: any): McpServer {
     const server = new McpServer({
-      name: 'Forkmost',
+      name: 'Wikimost',
       version: '1.0.0',
     });
 

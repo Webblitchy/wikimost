@@ -1,46 +1,19 @@
-# Forkmost
-
-> [!IMPORTANT] 
-> This repo is now EOL. No new updates will be added. Anyone is free to fork this software. Thanks to everyone who contributed to this software. I especially thank:
-> - [@hugokindel](https://github.com/hugokindel) for adding many new features, and also helping update this fork
-> - [@Philipinho](https://github.com/Philipinho) for the initial free software
-
-> [!NOTE]
-> I currently use [Typst](https://typst.app/play/), which is not WYSIWYG but offers many more customization options. There is also an online editor for sharing work, and it has wide community support, including for the web. I use Typst with a self-developed alpha alpha app for Nextcloud (which is not public, sorry), which has basically replaced Forkmost completely for me. There are more reasons viewable in the commit history.\
-
-## **For added and features merged ahead, see the note under Features.**
+# Wikimost
 
 <div align="center">
-    <h1><b>Forkmost</b></h1>
+    <h1><b>Wikimost</b></h1>
     <p>
         <p>Open-source collaborative wiki and documentation software.</p>
         <p>View the awesome original project (not associated with this fork other than being a fork of Docmost): <a href="https://docmost.com">Docmost</a></p>
-        <p>Renaming was done to avoid confusion and comply with trademark rights with the original project. Forkmost does not have any cloud nor enterprise features and is intended for personal use.</p>
+        <p>Renaming was done to avoid confusion and comply with trademark rights with the original project. Wikimost does not have any cloud nor enterprise features and is intended for personal use.</p>
     </p>
 </div>
 <br />
 
 ## Getting started
 
-To get started with Forkmost, please refer to the Docmost [documentation](https://docmost.com/docs).
+To get started with Wikimost, please refer to the Docmost [documentation](https://docmost.com/docs).
 
-## Versioning
-
-Forkmost uses the same versioning as upstream. The tags use this format: `vX.Y.Z.W`, where:
-
-- `X`, `Y`, and `Z` are the version numbers from upstream
-- `W` is the version number for this fork, starting at 0 for each new upstream release and increasing with each minor release in this fork
-
-For Docker, these tags are available:
-
-- `dev` - The newest development version of Forkmost. It should be stable, but it might have bugs.
-- `latest` - The newest stable version of Forkmost. This matches `vX.Y.Z.W`.
-- `vX.Y.Z.W` - A specific version of Forkmost.
-- `vX.Y.Z` - The newest version of Forkmost for the upstream version `X.Y.Z`. This matches `vX.Y.Z.latest`.
-
-> [!IMPORTANT]  
-> Rolling back to Docmost is not supported and has not been tested. It is unclear if the migrations will work if you try to return to Docmost. Even if they do work, all blocks that were added in Forkmost but do not exist in Docmost will be lost and cannot be recovered.  
-> This includes, but is not limited to, the following blocks: Highlight, Audio, Column layout, and more.
 
 ## Features
 
@@ -68,7 +41,7 @@ For Docker, these tags are available:
 
 <summary>Expand for merged or pre-fork pull requests</summary>
 
-- "Docmost" branding removed from the editor when sharing (moved to header as "Forkmost")
+- "Docmost" branding removed from the editor when sharing (moved to header as "Wikimost")
 - Users not in the same space (and without at least edit permissions) are hidden
 - Group members are hidden unless you are an admin or owner
 - Allow users to change their email address
@@ -138,11 +111,11 @@ Enterprise features (meaning the code not the features itself) from upstream are
 
 ### Contributing
 
-See the [development documentation](https://docmost.com/docs/self-hosting/development) of Docmost which Forkmost follows
+See the [development documentation](https://docmost.com/docs/self-hosting/development) of Docmost which Wikimost follows
 
 ## Thanks
 
-Major thanks to [@hugokindel](https://github.com/hugokindel) who contributed to better OIDC workflows, many QoL features, and helped massively with upgrading forkmost to the latest upstream version.
+Major thanks to [@hugokindel](https://github.com/hugokindel) who contributed to better OIDC workflows, many QoL features, and helped massively with upgrading Wikimost to the latest upstream version.
 
 Major thanks to [@fuscodev](https://github.com/fuscodev), who contributed their changes from upstream themselves. Also, many pull requests I merged are based on their work.
 

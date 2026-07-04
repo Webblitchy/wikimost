@@ -7,9 +7,9 @@ export default function ShareBranding() {
         variant="default"
         component="a"
         target="_blank"
-        href="https://github.com/Vito0912/forkmost"
+        href="https://github.com/Webblitchy/wikimost"
       >
-        Powered by Forkmost
+        Powered by Wikimost
       </Button>
     </Affix>
   );

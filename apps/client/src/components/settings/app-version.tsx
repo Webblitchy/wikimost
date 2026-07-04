@@ -13,7 +13,7 @@ export default function AppVersion() {
   let hasUpdate = false;
   try {
     if (appVersion && parseFloat(appVersion.latestVersion) > 0) {
-      // Forkmost uses vX.Y.Z.W versioning (4 segments) which is not valid semver.
+      // Wikimost uses vX.Y.Z.W versioning (4 segments) which is not valid semver.
       // Coerce both versions to valid semver before comparison.
       const latest = semverCoerce(appVersion.latestVersion);
       const current = semverCoerce(appVersion.currentVersion);
@@ -43,7 +43,7 @@ export default function AppVersion() {
           disabled={!hasUpdate}
           onClick={() => {
             window.open(
-              "https://github.com/vito0912/forkmost/releases",
+              "https://github.com/Webblitchy/wikimost/releases",
               "_blank",
             );
           }}
@@ -53,10 +53,10 @@ export default function AppVersion() {
             c="dimmed"
             component="a"
             mr={45}
-            href="https://github.com/vito0912/forkmost/releases"
+            href="https://github.com/Webblitchy/wikimost/releases"
             target="_blank"
           >
-            v{APP_VERSION} - Forkmost
+            v{APP_VERSION} - Wikimost
           </Text>
         </Indicator>
       </Tooltip>
