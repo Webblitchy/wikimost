@@ -102,6 +102,7 @@ import MentionView from "@/features/editor/components/mention/mention-view.tsx";
 import LinkView from "@/features/editor/components/link/link-view.tsx";
 import i18n from "@/i18n.ts";
 import { MarkdownClipboard } from "@/features/editor/extensions/markdown-clipboard.ts";
+import { EmptyBlockReset } from "@/features/editor/extensions/empty-block-reset.ts";
 import EmojiCommand from "./emoji-command";
 
 import { countWords } from "alfaaz";
@@ -136,6 +137,7 @@ export const mainExtensions = [
     codeBlock: false,
     code: false,
   }),
+  EmptyBlockReset,
   // Override TipTap's Code extension to fix the inline code input rule.
   // The upstream regex /(^|[^`])`([^`]+)`(?!`)$/ captures the character
   // before the opening backtick as part of the match, causing markInputRule
