@@ -47,7 +47,7 @@ export const CustomCodeBlock = CodeBlock.extend<CodeBlockLowlightOptions>({
         },
       },
       hideHeader: {
-        default: false,
+        default: true,
         parseHTML: (element: HTMLElement) =>
           element.getAttribute("data-hide-header") === "true",
         renderHTML: (attributes: Record<string, any>) => {
