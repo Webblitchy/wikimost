@@ -26,11 +26,12 @@ import {
   collabExtensions,
   mainExtensions,
 } from "@/features/editor/extensions/extensions";
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import useCollaborationUrl from "@/features/editor/hooks/use-collaboration-url";
 import { currentUserAtom } from "@/features/user/atoms/current-user-atom";
 import {
   pageEditorAtom,
+  titleEditorAtom,
   yjsConnectionStatusAtom,
 } from "@/features/editor/atoms/editor-atoms";
 import { asideStateAtom } from "@/components/layouts/global/hooks/atoms/sidebar-atom";
@@ -99,6 +100,7 @@ export default function PageEditor({
 
   const [currentUser] = useAtom(currentUserAtom);
   const [, setEditor] = useAtom(pageEditorAtom);
+  const titleEditor = useAtomValue(titleEditorAtom);
   const [, setAsideState] = useAtom(asideStateAtom);
   const [, setActiveCommentId] = useAtom(activeCommentIdAtom);
   const [showCommentPopup, setShowCommentPopup] = useAtom(showCommentPopupAtom);
@@ -244,7 +246,7 @@ export default function PageEditor({
         scrollThreshold: 80,
         scrollMargin: 80,
         handleDOMEvents: {
-          keydown: (_view, event) => {
+          keydown: (view, event) => {
             if ((event.ctrlKey || event.metaKey) && event.code === "KeyS") {
               event.preventDefault();
               debouncedSendSaveCommand();
@@ -273,6 +275,16 @@ export default function PageEditor({
               if (emojiCommand) {
                 return true;
               }
+            }
+
+            // Arrow up to go to title
+            const { $from } = view.state.selection;
+            if (event.key === "ArrowUp" && $from.index(0) === 0 && titleEditor && view.state.selection.empty) {
+              event.preventDefault();
+              // Keep horizontal position
+              const cursorPos: number = $from.parentOffset + 1; // +1 to skip the html tag before title
+              titleEditor.commands.focus(cursorPos); 
+              return true;
             }
           },
         },

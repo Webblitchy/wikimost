@@ -225,10 +225,11 @@ export function TitleEditor({
     const { key } = event;
     const { $head } = titleEditor.state.selection;
 
+    // Focus editor page
+    const { $from } = titleEditor.state.selection;
     if (key === "Enter") {
       event.preventDefault();
 
-      const { $from } = titleEditor.state.selection;
       const titleText = titleEditor.getText();
 
       // Get the text offset within the heading node (not document position)
@@ -259,13 +260,15 @@ export function TitleEditor({
         .run();
       return;
     }
-
-    const shouldFocusEditor =
-      key === "ArrowDown" || (key === "ArrowRight" && !$head.nodeAfter);
-
-    if (shouldFocusEditor) {
+    else if (key === "ArrowRight" && !$head.nodeAfter) {
       pageEditor.commands.focus("start");
     }
+    else if (key === "ArrowDown") {
+      // Keep horizontal position
+      const cursorPos: number = $from.parentOffset + 1; // +1 to skip the html tag before title
+      pageEditor.commands.focus(cursorPos);
+    }
+
   }
 
   return (

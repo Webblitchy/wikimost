@@ -7,6 +7,7 @@ Extension to have a better "Backspace" handling
 import { Extension, findParentNode } from "@tiptap/core";
 import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { liftListItem } from "@tiptap/pm/schema-list";
+import { liftTarget } from "@tiptap/pm/transform";
 
 export const BetterBackspace = Extension.create({
   name: "betterBackspace",
@@ -47,6 +48,7 @@ export const BetterBackspace = Extension.create({
               return true;
             }
 
+            // Remove list
             const list = findParentNode(
               node => ["bulletList","orderedList","taskList"].includes(node.type.name)
             )(selection);
