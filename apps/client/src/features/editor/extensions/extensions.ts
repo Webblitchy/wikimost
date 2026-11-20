@@ -42,6 +42,7 @@ import {
   Mention,
   TableDndExtension,
   ExtraLigatures,
+  CustomBulletList,
   ColumnContainer,
   ColumnLayoutColumn,
   Subpages,
@@ -136,6 +137,7 @@ export const mainExtensions = [
     },
     codeBlock: false,
     code: false,
+    bulletList: false, // make my own list without "+"
   }),
   BetterBackspace,
   // Override TipTap's Code extension to fix the inline code input rule.
@@ -206,8 +208,17 @@ export const mainExtensions = [
   Highlight.configure({
     multicolor: true,
   }),
-  Typography,
+  Typography.configure({
+    // Disable quotes replacements
+    openDoubleQuote: false,
+    closeDoubleQuote: false,
+    openSingleQuote: false,
+    closeSingleQuote: false,
+    laquo: false,
+    raquo: false,
+  }),
   ExtraLigatures,
+  CustomBulletList,
   TrailingNode,
   GlobalDragHandle,
   TextStyle,
