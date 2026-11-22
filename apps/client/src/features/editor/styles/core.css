@@ -80,9 +80,7 @@
     margin-top: 1.25rem;
   }
 
-  h4,
-  h5,
-  h6 {
+  h4 {
     line-height: 1.1;
     margin-bottom: 10px;
   }
@@ -245,9 +243,7 @@
 .ProseMirror > h1,
 .ProseMirror > h2,
 .ProseMirror > h3,
-.ProseMirror > h4,
-.ProseMirror > h5,
-.ProseMirror > h6 {
+.ProseMirror > h4 {
 
   > .link-btn {
     cursor: pointer;

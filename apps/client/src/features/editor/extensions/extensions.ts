@@ -159,7 +159,9 @@ export const mainExtensions = [
     },
   }),
   SharedStorage,
-  Heading,
+  Heading.configure({
+    levels: [1,2,3,4], // disable h5 and h6
+  }),
   UniqueID.configure({
     types: ["heading", "paragraph"],
     filterTransaction: (transaction) => !isChangeOrigin(transaction),

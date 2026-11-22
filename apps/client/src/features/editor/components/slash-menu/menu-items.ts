@@ -7,8 +7,6 @@ import {
   IconH2,
   IconH3,
   IconH4,
-  IconH5,
-  IconH6,
   IconInfoCircle,
   IconList,
   IconListNumbers,
@@ -138,34 +136,6 @@ const CommandGroups: SlashMenuGroupedItemsType = {
           .focus()
           .deleteRange(range)
           .setNode("heading", { level: 4 })
-          .run();
-      },
-    },
-    {
-      title: "Heading 5",
-      description: "Very small section heading.",
-      searchTerms: ["verysmall"],
-      icon: IconH5,
-      command: ({ editor, range }: CommandProps) => {
-        editor
-          .chain()
-          .focus()
-          .deleteRange(range)
-          .setNode("heading", { level: 5 })
-          .run();
-      },
-    },
-    {
-      title: "Heading 6",
-      description: "Minimum size section heading.",
-      searchTerms: ["min"],
-      icon: IconH6,
-      command: ({ editor, range }: CommandProps) => {
-        editor
-          .chain()
-          .focus()
-          .deleteRange(range)
-          .setNode("heading", { level: 6 })
           .run();
       },
     },
