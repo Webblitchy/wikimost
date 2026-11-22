@@ -13,6 +13,7 @@ import {
 } from "@mantine/core";
 import { useEditor } from "@tiptap/react";
 import { useTranslation } from "react-i18next";
+import classes from "./bubble-menu.module.css";
 
 export interface BubbleColorMenuItem {
   name: string;
@@ -81,7 +82,12 @@ export const HighlightColorSelector: FC<HighlightColorSelectorProps> = ({
   return (
     <Popover width={200} opened={isOpen} withArrow>
       <Popover.Target>
-        <Tooltip label={t("Highlight text color")} withArrow>
+        <Tooltip label={
+              <>
+                {t("Highlight")}
+                <span className={classes.shortcut}>&nbsp;&nbsp;(Ctrl+Shift+H)</span>
+              </>
+          } withArrow>
           <ActionIcon
             variant="default"
             size="lg"

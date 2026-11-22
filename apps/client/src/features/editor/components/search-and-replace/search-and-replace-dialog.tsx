@@ -249,7 +249,14 @@ function SearchAndReplaceDialog({ editor, editable = true }: PageFindDialogDialo
           />
 
           <ActionIcon.Group>
-            <Tooltip label={t("Previous match (Shift+Enter)")}>
+            <Tooltip label={
+                <>
+                  {t("Previous match")}
+                  <Text component="span" size="xs" c="dimmed">
+                    &nbsp;(Shift+Enter)
+                  </Text>
+                </>
+              }>
               <ActionIcon variant="subtle" color="gray" onClick={previous}>
                 <IconArrowNarrowUp
                   style={{ width: "70%", height: "70%" }}
@@ -257,7 +264,14 @@ function SearchAndReplaceDialog({ editor, editable = true }: PageFindDialogDialo
                 />
               </ActionIcon>
             </Tooltip>
-            <Tooltip label={t("Next match (Enter)")}>
+            <Tooltip label={
+                <>
+                  {t("Next match")}
+                  <Text component="span" size="xs" c="dimmed">
+                    &nbsp;(Enter)
+                  </Text>
+                </>
+              }>
               <ActionIcon variant="subtle" color="gray" onClick={next}>
                 <IconArrowNarrowDown
                   style={{ width: "70%", height: "70%" }}
@@ -265,7 +279,14 @@ function SearchAndReplaceDialog({ editor, editable = true }: PageFindDialogDialo
                 />
               </ActionIcon>
             </Tooltip>
-            <Tooltip label={t("Match case (Alt+C)")}>
+            <Tooltip label={
+                <>
+                  {t("Match case")}
+                  <Text component="span" size="xs" c="dimmed">
+                    &nbsp;(Alt+C)
+                  </Text>
+                </>
+              }>
               <ActionIcon
                 variant="subtle"
                 color={caseSensitive.color}
@@ -278,7 +299,14 @@ function SearchAndReplaceDialog({ editor, editable = true }: PageFindDialogDialo
               </ActionIcon>
             </Tooltip>
             {editable && (
-              <Tooltip label={t("Replace")}>
+              <Tooltip label={
+                  <>
+                    {t("Replace")}
+                    <Text component="span" size="xs" c="dimmed">
+                      &nbsp;(Ctrl+H)
+                    </Text>
+                  </>
+                }>
                 <ActionIcon
                   variant="subtle"
                   color={replaceButton.color}
@@ -291,7 +319,14 @@ function SearchAndReplaceDialog({ editor, editable = true }: PageFindDialogDialo
                 </ActionIcon>
               </Tooltip>
             )}
-            <Tooltip label={t("Close (Escape)")}>
+            <Tooltip label={
+                <>
+                  {t("Close")}
+                  <Text component="span" size="xs" c="dimmed">
+                    &nbsp;(Esc)
+                  </Text>
+                </>
+              }>
               <ActionIcon variant="subtle" color="gray" onClick={closeDialog}>
                 <IconX style={{ width: "70%", height: "70%" }} stroke={1.5} />
               </ActionIcon>
@@ -317,7 +352,14 @@ function SearchAndReplaceDialog({ editor, editable = true }: PageFindDialogDialo
               ])}
             />
             <ActionIcon.Group>
-              <Tooltip label={t("Replace (Enter)")}>
+              <Tooltip label={
+                  <>
+                    {t("Replace")}
+                    <Text component="span" size="xs" c="dimmed">
+                      &nbsp;(Enter)
+                    </Text>
+                  </>
+                }>
                 <Button
                   size="xs"
                   variant="subtle"
@@ -327,7 +369,14 @@ function SearchAndReplaceDialog({ editor, editable = true }: PageFindDialogDialo
                   {t("Replace")}
                 </Button>
               </Tooltip>
-              <Tooltip label={t("Replace all (Ctrl+Alt+Enter)")}>
+              <Tooltip label={
+                  <>
+                    {t("Replace all")}
+                    <Text component="span" size="xs" c="dimmed">
+                      &nbsp;(Ctrl+Alt+Enter)
+                    </Text>
+                  </>
+                }>
                 <Button
                   size="xs"
                   variant="subtle"

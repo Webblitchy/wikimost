@@ -17,7 +17,7 @@ import {
   IconListNumbers,
   IconTypography,
 } from "@tabler/icons-react";
-import { Popover, Button, ScrollArea, Tooltip } from "@mantine/core";
+import { Popover, Button, ScrollArea, Tooltip, Group } from "@mantine/core";
 import type { Editor } from "@tiptap/react";
 import { useEditorState } from "@tiptap/react";
 import { useTranslation } from "react-i18next";
@@ -34,6 +34,7 @@ export interface BubbleMenuItem {
   icon: React.ElementType;
   command: () => void;
   isActive: () => boolean;
+  shortcut: string;
 }
 
 export const NodeSelector: FC<NodeSelectorProps> = ({
@@ -76,60 +77,70 @@ export const NodeSelector: FC<NodeSelectorProps> = ({
         editorState?.isParagraph &&
         !editorState?.isBulletList &&
         !editorState?.isOrderedList,
+      shortcut: "",
     },
     {
       name: "Heading 1",
       icon: IconH1,
       command: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
       isActive: () => editorState?.isHeading1,
+      shortcut: "#",
     },
     {
       name: "Heading 2",
       icon: IconH2,
       command: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
       isActive: () => editorState?.isHeading2,
+      shortcut: "##",
     },
     {
       name: "Heading 3",
       icon: IconH3,
       command: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
       isActive: () => editorState?.isHeading3,
+      shortcut: "###",
     },
     {
       name: "Heading 4",
       icon: IconH4,
       command: () => editor.chain().focus().toggleHeading({ level: 4 }).run(),
       isActive: () => editor.isActive("heading", { level: 4 }),
+      shortcut: "####",
     },
     {
       name: "Heading 5",
       icon: IconH5,
       command: () => editor.chain().focus().toggleHeading({ level: 5 }).run(),
       isActive: () => editor.isActive("heading", { level: 5 }),
+      shortcut: "#####",
     },
     {
       name: "Heading 6",
       icon: IconH6,
       command: () => editor.chain().focus().toggleHeading({ level: 6 }).run(),
       isActive: () => editor.isActive("heading", { level: 6 }),
+      shortcut: "######",
     },
     {
       name: "To-do List",
       icon: IconCheckbox,
       command: () => editor.chain().focus().toggleTaskList().run(),
       isActive: () => editorState?.isTaskItem,
+      shortcut: "[]",
     },
     {
       name: "Bullet List",
       icon: IconList,
       command: () => editor.chain().focus().toggleBulletList().run(),
       isActive: () => editorState?.isBulletList,
+      shortcut: "-",
     },
     {
       name: "Numbered List",
       icon: IconListNumbers,
       command: () => editor.chain().focus().toggleOrderedList().run(),
       isActive: () => editorState?.isOrderedList,
+      shortcut: "1.",
     },
     {
       name: "Blockquote",
@@ -142,24 +153,28 @@ export const NodeSelector: FC<NodeSelectorProps> = ({
           .toggleBlockquote()
           .run(),
       isActive: () => editorState?.isBlockquote,
+      shortcut: ">",
     },
     {
       name: "Code",
       icon: IconCode,
       command: () => editor.chain().focus().toggleCodeBlock().run(),
       isActive: () => editorState?.isCodeBlock,
+      shortcut: "```",
     },
     {
       name: "Callout",
       icon: IconInfoCircle,
       command: () => editor.chain().focus().toggleCallout().run(),
       isActive: () => editorState?.isCallout,
+      shortcut: ":::",
     },
     {
       name: "Toggle block",
       icon: IconCaretRightFilled,
       command: () => editor.chain().focus().setDetails().run(),
       isActive: () => editorState?.isDetails,
+      shortcut: "",
     },
   ];
 
@@ -185,25 +200,34 @@ export const NodeSelector: FC<NodeSelectorProps> = ({
       </Popover.Target>
 
       <Popover.Dropdown>
-        <ScrollArea.Autosize type="scroll" mah={400}>
+        <ScrollArea.Autosize type="scroll">
           <Button.Group orientation="vertical">
             {items.map((item, index) => (
               <Button
                 key={index}
                 variant="default"
-                leftSection={<item.icon size={16} />}
                 rightSection={
-                  activeItem.name === item.name && <IconCheck size={16} />
+                  activeItem.name === item.name ? <IconCheck size={16} /> : <span className={classes.shortcutMono}>{(item.shortcut)}</span>
                 }
-                justify="left"
+                justify="space-between"
                 fullWidth
                 onClick={() => {
                   item.command();
                   setIsOpen(false);
                 }}
-                style={{ border: "none" }}
+                style={{
+                  border: "none",
+                }}
+                styles={{
+                  section: { marginInlineStart: "var(--mantine-spacing-xl)" },
+                }}
               >
-                {t(item.name)}
+                <Group gap="sm">
+                  <item.icon size={16} />
+                  <span style={{ fontWeight: activeItem.name === item.name ? "bold" : "normal" }}>
+                    {t(item.name)}
+                  </span>
+                </Group>
               </Button>
             ))}
           </Button.Group>

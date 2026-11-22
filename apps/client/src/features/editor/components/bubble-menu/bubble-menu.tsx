@@ -35,6 +35,7 @@ export interface BubbleMenuItem {
   isActive: () => boolean;
   command: () => void;
   icon: typeof IconBold;
+  shortcut: string;
 }
 
 type EditorBubbleMenuProps = Omit<BubbleMenuProps, "children" | "editor"> & {
@@ -83,42 +84,49 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
       isActive: () => editorState?.isBold,
       command: () => props.editor.chain().focus().toggleBold().run(),
       icon: IconBold,
+      shortcut: "Ctrl+B",
     },
     {
       name: "Italic",
       isActive: () => editorState?.isItalic,
       command: () => props.editor.chain().focus().toggleItalic().run(),
       icon: IconItalic,
+      shortcut: "Ctrl+I",
     },
     {
       name: "Underline",
       isActive: () => editorState?.isUnderline,
       command: () => props.editor.chain().focus().toggleUnderline().run(),
       icon: IconUnderline,
+      shortcut: "Ctrl+U",
     },
     {
       name: "Strike",
       isActive: () => editorState?.isStrike,
       command: () => props.editor.chain().focus().toggleStrike().run(),
       icon: IconStrikethrough,
+      shortcut: "Ctrl+Shift+S",
     },
     {
       name: "Subscript",
       isActive: () => editorState?.isSubscript,
       command: () => props.editor.chain().focus().toggleSubscript().run(),
       icon: IconSubscript,
+      shortcut: "Ctrl+,",
     },
     {
       name: "Superscript",
       isActive: () => editorState?.isSuperscript,
       command: () => props.editor.chain().focus().toggleSuperscript().run(),
       icon: IconSuperscript,
+      shortcut: "Ctrl+.",
     },
     {
       name: "Code",
       isActive: () => editorState?.isCode,
       command: () => props.editor.chain().focus().toggleCode().run(),
       icon: IconCode,
+      shortcut: "Ctrl+E",
     },
   ];
 
@@ -133,6 +141,7 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
       setShowCommentPopup(true);
     },
     icon: IconMessage,
+    shortcut: "",
   };
 
   const bubbleMenuProps: EditorBubbleMenuProps = {
@@ -203,7 +212,12 @@ export const EditorBubbleMenu: FC<EditorBubbleMenuProps> = (props) => {
 
         <ActionIcon.Group>
           {items.map((item, index) => (
-            <Tooltip key={index} label={t(item.name)} withArrow>
+            <Tooltip key={index} label={
+              <>
+                {t(item.name)}
+                <span className={classes.shortcut}>&nbsp;&nbsp;({item.shortcut})</span>
+              </>
+              } withArrow>
               <ActionIcon
                 key={index}
                 variant="default"

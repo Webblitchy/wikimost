@@ -237,7 +237,7 @@ function PageActionMenu({ readOnly }: PageActionMenuProps) {
             leftSection={<IconSearch size={16} />}
             rightSection={
               <Text size="xs" c="dimmed">
-                Crtl + F
+                Ctrl + F
               </Text>
             }
             onClick={openFindDialog}
@@ -249,12 +249,12 @@ function PageActionMenu({ readOnly }: PageActionMenuProps) {
             leftSection={<IconReplace size={16} />}
             rightSection={
               <Text size="xs" c="dimmed">
-                Crtl + H
+                Ctrl + H
               </Text>
             }
             onClick={openFindAndReplaceDialog}
           >
-            {t("Replace")}
+            {t("Replace")} 
           </Menu.Item>
 
           {watchStatus?.watching ? (

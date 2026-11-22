@@ -51,3 +51,15 @@
     var(--mantine-color-dark-3)
   );
 }
+
+.shortcut {
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-xs);
+}
+
+.shortcutMono {
+  color: var(--mantine-color-dimmed);
+  font-family: var(--mantine-font-family-monospace);
+  font-size: var(--mantine-font-size-xs);
+}
+
