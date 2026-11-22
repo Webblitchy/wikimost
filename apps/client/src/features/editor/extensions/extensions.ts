@@ -56,6 +56,7 @@ import {
   ListNormalization,
   NodeBackground,
   TocNode,
+  ResetStyleOnEnter,
 } from "@docmost/editor-ext";
 import {
   randomElement,
@@ -139,6 +140,7 @@ export const mainExtensions = [
     code: false,
     bulletList: false, // make my own list without "+"
   }),
+  ResetStyleOnEnter, // at start to be replaced by other shortcuts
   BetterBackspace,
   // Override TipTap's Code extension to fix the inline code input rule.
   // The upstream regex /(^|[^`])`([^`]+)`(?!`)$/ captures the character

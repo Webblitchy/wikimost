@@ -36,4 +36,5 @@ export * from "./lib/list-normalization";
 export * from "./lib/node-background";
 export * from "./lib/toc-node";
 export * from "./lib/resizable-nodeview";
+export * from "./lib/reset-style-on-enter";
 
