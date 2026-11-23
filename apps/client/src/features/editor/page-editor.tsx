@@ -247,12 +247,23 @@ export default function PageEditor({
         scrollMargin: 80,
         handleDOMEvents: {
           keydown: (view, event) => {
-            if ((event.ctrlKey || event.metaKey) && event.code === "KeyS") {
+            if (
+              (event.ctrlKey || event.metaKey) &&
+              !event.shiftKey &&
+              !event.altKey &&
+              event.code === "KeyS"
+            ) {
               event.preventDefault();
               debouncedSendSaveCommand();
               return true;
             }
-            if ((event.ctrlKey || event.metaKey) && event.code === "KeyK") {
+            if (
+              (event.ctrlKey || event.metaKey) &&
+              !event.shiftKey &&
+              !event.altKey &&
+              event.code === "KeyK"
+            ) {
+              event.preventDefault();
               searchSpotlight.open();
               return true;
             }
@@ -323,6 +334,7 @@ export default function PageEditor({
     },
     [pageId, editable, extensions],
   );
+
 
   const editorIsEditable = useEditorState({
     editor,
@@ -426,6 +438,11 @@ export default function PageEditor({
       />
     );
   }
+
+  // Expose editor for debugging
+  //useEffect(() => {
+  //  (window as any).editor = editor
+  //}, [editor]);
 
   return (
     <div className="editor-container" style={{ position: "relative" }}>
